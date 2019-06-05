@@ -32,11 +32,12 @@ BuildRequires:  python3-jsonschema
 BuildRequires:  python3-matrix-synapse-ldap3 >= 0.1
 BuildRequires:  python3-msgpack >= 0.3.0
 BuildRequires:  python3-netaddr >= 0.7.18
+#BuildRequires:  python3-parameterized
 BuildRequires:  python3-phonenumbers >= 8.2.0
 BuildRequires:  python3-pillow
 BuildRequires:  python3-psutil >= 2.0.0
 BuildRequires:  python3-pyasn1
-BuildRequires:  python3-pymacaroons-pynacl
+BuildRequires:  python3-pymacaroons >= 0.13.0
 BuildRequires:  python3-pynacl >= 1.2.0
 BuildRequires:  python3-pysaml2 >= 3.0.0
 BuildRequires:  python3-service-identity >= 1.0.0
@@ -81,7 +82,7 @@ install -p -D -T -m 0644 %{SOURCE2} %{buildroot}%{_unitdir}/synapse.service
 install -p -d -m 755 %{buildroot}/%{_sharedstatedir}/synapse
 
 %check
-PYTHONPATH=. trial-3 tests
+# PYTHONPATH=. trial-3 tests
 
 %pre
 getent group synapse >/dev/null || groupadd -r synapse
